@@ -36,7 +36,7 @@ public class PlayerController {
 		return pService.getAllPlayers();
 	}
 	
-	@GetMapping("/players/team/{team}")
+	@GetMapping("/players/{id}")
 	public List <JSONObject> getPlayerById(@PathVariable int id, @RequestHeader int RequestId, @RequestHeader int SessionId) {
 		return pService.getPlayerById(id);
 	}
