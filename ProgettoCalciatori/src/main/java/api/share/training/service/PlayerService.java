@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import api.share.training.repository.PlayerRepository;
 import net.minidev.json.JSONObject;
@@ -32,5 +33,10 @@ public class PlayerService {
 	
 	public List <JSONObject> getPlayerById(int id){
 		return pRepo.getPlayersById(id);
+	}
+	
+	///Nuovo da Qui
+	public void insertPlayer(@RequestBody String nome, @RequestBody String cognome, @RequestBody String squadra){
+		this.pRepo.insertPlayer(nome, cognome, squadra);
 	}
 }

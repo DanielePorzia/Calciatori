@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -39,6 +41,12 @@ public class PlayerController {
 	@GetMapping("/players/{id}")
 	public List <JSONObject> getPlayerById(@PathVariable int id, @RequestHeader int RequestId, @RequestHeader int SessionId) {
 		return pService.getPlayerById(id);
+	}
+	
+	///Nuovo da qui
+	@PostMapping("/players")
+	public void insertPlayer(@RequestBody String nome, @RequestBody String cognome, @RequestBody String squadra){
+		this.pService.insertPlayer(nome, cognome, squadra);
 	}
 	
 }
