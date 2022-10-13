@@ -25,7 +25,13 @@ public class Player {
 	public Player() {
 		super();
 	}
-	
+	/**
+	 * Crea classe Request e RequestUpdate
+	 * @param id
+	 * @param nome
+	 * @param cognome
+	 * @param squadra
+	 */
 	public Player(int id, String nome, String cognome, String squadra) {
 		super();
 		this.id = id;
