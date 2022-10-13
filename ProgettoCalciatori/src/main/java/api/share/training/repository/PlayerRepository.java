@@ -16,6 +16,6 @@ public interface PlayerRepository extends JpaRepository<Player, Integer>{
 	@Query(value = "select * from player", nativeQuery = true)
     public List <JSONObject> getAllPlayers();
 	
-	@Query(value = "select * from player where squadra=:squadra", nativeQuery = true)
-    public List <JSONObject> getPlayersByTeam(@Param("squadra") String squadra);
+	@Query(value = "select * from player where id=:id", nativeQuery = true)
+    public List <JSONObject> getPlayersById(@Param("id") int id);
 }
