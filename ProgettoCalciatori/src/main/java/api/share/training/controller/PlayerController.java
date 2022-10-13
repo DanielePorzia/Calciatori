@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import api.share.training.model.Player;
 import api.share.training.service.PlayerService;
+import net.minidev.json.JSONObject;
 
 @RestController
 @RequestMapping("/progettoCalciatori")
@@ -29,4 +30,15 @@ public class PlayerController {
 	public Optional<Player> getPlayerByID(@PathVariable int id, @RequestHeader int RequestId, @RequestHeader int SessionId) {
 		return pService.getPlayerByID(id);
 	}
+	
+	@GetMapping("/playersWithSQL")
+	public List <JSONObject> getAllPlayers() {
+		return pService.getAllPlayersSQL();
+	}
+	
+	@GetMapping("/players/team/{team}")
+	public List <JSONObject> getPlayerByTeam(@PathVariable String team) {
+		return pService.getPlayerByTeam(team);
+	}
+	
 }

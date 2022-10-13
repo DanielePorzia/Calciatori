@@ -1,9 +1,30 @@
 package api.share.training.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity(name="player")
+@Table(name="player")
 public class Player {
 
+	@Column(name="id", nullable = false)
+	@Id
 	private int id;
-	private String nome,cognome,squadra;
+	
+	@Column(name="nome", nullable = false)
+	private String nome;
+	
+	@Column(name="cognome", nullable = false)
+	private String cognome;
+	
+	@Column(name="squadra", nullable = true)
+	private String squadra;
+	
+	public Player() {
+		super();
+	}
 	
 	public Player(int id, String nome, String cognome, String squadra) {
 		super();

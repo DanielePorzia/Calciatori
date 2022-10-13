@@ -1,32 +1,36 @@
 package api.share.training.service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import api.share.training.model.Player;
+import api.share.training.repository.PlayerRepository;
+import net.minidev.json.JSONObject;
 
 @Service
 public class PlayerService {
-
+	
+	@Autowired
+	private PlayerRepository pRepo;
 	private List<Player> listaGiocatori;
-
-	public PlayerService() {
-		super();
-		listaGiocatori = new ArrayList<>(List.of(new Player(1, "Francesco", "Totti", "As Roma"), 
-												 new Player(2, "Javier","Zanetti","FC Inter"), 
-												 new Player(3, "Paolo","Maldini","AC Milan")));
-	}
 	
 	public List<Player> getAllPlayers() {
-		return listaGiocatori;
+		return pRepo.findAll();
+		//return listaGiocatori;
 	}
 	
 	public Optional<Player> getPlayerByID(int id) {
 		return this.listaGiocatori.stream().filter(p->p.getId()==id).findFirst();
 	}	
 	
+	public List <JSONObject> getAllPlayersSQL(){
+		return pRepo.getAllPlayers();
+	}
 	
+	public List <JSONObject> getPlayerByTeam(String squadra){
+		return pRepo.getPlayersByTeam(squadra);
+	}
 }
