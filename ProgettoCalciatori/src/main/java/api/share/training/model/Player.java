@@ -2,10 +2,12 @@ package api.share.training.model;
 
 public class Player {
 
+	private int id;
 	private String nome,cognome,squadra;
 	
-	public Player(String nome, String cognome, String squadra) {
+	public Player(int id, String nome, String cognome, String squadra) {
 		super();
+		this.id = id;
 		this.nome = nome;
 		this.cognome = cognome;
 		this.squadra = squadra;
@@ -33,6 +35,14 @@ public class Player {
 
 	public void setSquadra(String squadra) {
 		this.squadra = squadra;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	
