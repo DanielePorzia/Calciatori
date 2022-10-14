@@ -19,7 +19,7 @@ public class Player {
 	@Column(name="cognome", nullable = false)
 	private String cognome;
 	
-	@Column(name="squadra", nullable = true)
+	@Column(name="squadra", nullable = true, updatable=true)
 	private String squadra;
 	
 	public Player() {

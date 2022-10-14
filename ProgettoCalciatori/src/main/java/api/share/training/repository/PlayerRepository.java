@@ -29,7 +29,7 @@ public interface PlayerRepository extends JpaRepository<Player, Integer>{
 	
 	@Transactional
     @Modifying
-    @Query(value="UPDATE player SET squadra=:squadra WHERE id=:id) ", nativeQuery = true)
+    @Query(value="UPDATE player SET squadra=:squadra WHERE id=:id ", nativeQuery = true)
     public void updatePlayer(@Param("id") int id, @Param("squadra") String squadra);
 
 	@Transactional
