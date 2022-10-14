@@ -33,7 +33,7 @@ public class PlayerController {
 	}
 	*/
 	
-	@GetMapping("/playersWithSQL")
+	@GetMapping("/players")
 	public List <JSONObject> getAllPlayers() {
 		return pService.getAllPlayers();
 	}
