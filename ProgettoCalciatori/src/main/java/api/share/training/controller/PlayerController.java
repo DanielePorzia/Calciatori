@@ -47,6 +47,7 @@ public class PlayerController {
 	@PostMapping("/players")
 	public String insertPlayer(){
 		return "Post Funziona";
+		//proviamo againg
 		//this.pService.insertPlayer(nome, cognome, squadra);
 	}
 	
