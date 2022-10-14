@@ -5,8 +5,11 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 
+import api.share.training.model.RequestInsertPlayer;
+import api.share.training.model.RequestUpdatePlayer;
 import api.share.training.repository.PlayerRepository;
 import net.minidev.json.JSONObject;
 
@@ -36,7 +39,16 @@ public class PlayerService {
 	}
 	
 	///Nuovo da Qui
-	public void insertPlayer(@RequestBody String nome, @RequestBody String cognome, @RequestBody String squadra){
-		this.pRepo.insertPlayer(nome, cognome, squadra);
+	public void insertPlayer(@RequestBody RequestInsertPlayer playerToBeInsered){
+		this.pRepo.insertPlayer(playerToBeInsered.getNome(), playerToBeInsered.getCognome(), playerToBeInsered.getSquadra());
 	}
+	
+	public void updatePlayer(@PathVariable int id, @RequestBody RequestUpdatePlayer playerToBeModified) {
+		this.pRepo.updatePlayer(id, playerToBeModified.getSquadra());
+	}
+	
+	public void deletePlayerById(int id){
+		pRepo.deletePlayersById(id);
+	}
+	
 }

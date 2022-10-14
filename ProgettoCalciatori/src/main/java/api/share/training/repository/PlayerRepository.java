@@ -3,6 +3,7 @@ package api.share.training.repository;
 import java.util.List;
 
 import javax.transaction.Transactional;
+import javax.websocket.server.PathParam;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
@@ -22,14 +23,19 @@ public interface PlayerRepository extends JpaRepository<Player, Integer>{
 	@Query(value = "select * from player where id=:id", nativeQuery = true)
     public List <JSONObject> getPlayersById(@Param("id") int id);
 	
-	
-	///Nuovo da Qui
+	@Transactional
+    @Modifying
+    @Query(value="INSERT INTO player (nome,cognome,squadra) VALUES(:nome, :cognome, :squadra) ", nativeQuery = true)
+    void insertPlayer(@Param("nome") String nome, @Param("cognome") String cognome, @Param("squadra") String squadra);
 	
 	@Transactional
     @Modifying
-    @Query(value="INSERT INTO players (nome,cognome,squadra) VALUES(:nome, :cognome, :squadra) ", nativeQuery = true)
-    void insertPlayer(@Param("nome") String nome, @Param("cognome") String cognome, @Param("squadra") String squadra);
+    @Query(value="UPDATE player SET squadra=:squadra WHERE id=:id) ", nativeQuery = true)
+    void updatePlayer( @PathParam("id") int id, @Param("squadra") String squadra);
 
-
-
+	@Transactional
+    @Modifying
+	@Query(value = "DELETE from player where id=:id", nativeQuery = true)
+    public void deletePlayersById(@Param("id") int id);;
 }
+

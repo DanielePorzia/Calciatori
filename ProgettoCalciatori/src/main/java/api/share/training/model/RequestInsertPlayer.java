@@ -12,6 +12,18 @@ public class RequestInsertPlayer {
 	
 	@Column(name="squadra", nullable = true)
 	private String squadra;
+
+	public String getNome() {
+		return nome;
+	}
+
+	public String getCognome() {
+		return cognome;
+	}
+
+	public String getSquadra() {
+		return squadra;
+	}
 	
 	
 }
