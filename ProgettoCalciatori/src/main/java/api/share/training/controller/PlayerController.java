@@ -42,7 +42,7 @@ public class PlayerController {
 		return pService.getAllPlayers();
 	}
 	
-	@GetMapping("/players/{id}")
+	@GetMapping("/players/player/{id}")
 	public List <JSONObject> getPlayerById(@PathVariable int id, @RequestHeader int RequestId, @RequestHeader int SessionId) {
 		return pService.getPlayerById(id);
 	}
@@ -52,9 +52,9 @@ public class PlayerController {
 		this.pService.insertPlayer(playerToBeInsered);
 	}
 	
-	@PutMapping("/players/{id}")
-	public void updatePlayer(@PathVariable int id, @RequestBody RequestUpdatePlayer playerToBeModified) {
-		this.pService.updatePlayer(id, playerToBeModified);
+	@PutMapping("/players/player/{id}")
+	public void updatePlayer(@PathVariable int id, @RequestBody RequestUpdatePlayer teamToBeModified) {
+		this.pService.updatePlayer(id, teamToBeModified);
 	}
 	
 	@DeleteMapping("/players/{id}")

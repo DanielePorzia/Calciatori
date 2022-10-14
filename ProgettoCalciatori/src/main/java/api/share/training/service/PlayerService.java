@@ -38,13 +38,12 @@ public class PlayerService {
 		return pRepo.getPlayersById(id);
 	}
 	
-	///Nuovo da Qui
 	public void insertPlayer(@RequestBody RequestInsertPlayer playerToBeInsered){
 		this.pRepo.insertPlayer(playerToBeInsered.getNome(), playerToBeInsered.getCognome(), playerToBeInsered.getSquadra());
 	}
 	
-	public void updatePlayer(@PathVariable int id, @RequestBody RequestUpdatePlayer playerToBeModified) {
-		this.pRepo.updatePlayer(id, playerToBeModified.getSquadra());
+	public void updatePlayer(@PathVariable int id, @RequestBody RequestUpdatePlayer teamToBeModified) {
+		this.pRepo.updatePlayer(id, teamToBeModified.getSquadra());
 	}
 	
 	public void deletePlayerById(int id){

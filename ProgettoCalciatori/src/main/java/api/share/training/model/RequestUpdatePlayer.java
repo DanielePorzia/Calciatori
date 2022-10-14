@@ -6,7 +6,7 @@ public class RequestUpdatePlayer {
 	
 	@Column(name="squadra", nullable = true)
 	private String squadra;
-	
+
 	public String getSquadra() {
 		return squadra;
 	}
